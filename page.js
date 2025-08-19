@@ -12,4 +12,21 @@ function opentab(tabname){
 }
 
 /*-------------open-close-----------*/
+document.addEventListener("DOMContentLoaded", function () {
+    const btn  = document.getElementById("see-more");
+    const list = document.getElementById("more-projects");
 
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const willShow = list.hasAttribute("hidden");
+      if (willShow) {
+        list.removeAttribute("hidden");
+        btn.textContent = "See Less";
+        btn.setAttribute("aria-expanded", "true");
+      } else {
+        list.setAttribute("hidden", "");
+        btn.textContent = "See More";
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
