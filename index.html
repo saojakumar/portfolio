@@ -4,338 +4,1467 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saroj Kumar | UI/UX Developer| Portfolio</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Saroj Kumar | Angular Developer & Frontend Engineer (3+ Years Exp)</title>
+    <meta name="title" content="Saroj Kumar | Angular Developer & Frontend Engineer">
+    <meta name="description" content="Portfolio of Saroj Kumar - Angular Developer with 3 years of experience building responsive, scalable enterprise web applications using Angular 16+, TypeScript, JavaScript, RxJS, and React Native for ICAI.">
+    <meta name="keywords" content="Saroj Kumar, Angular Developer, Frontend Engineer, TypeScript, RxJS, React Native, ICAI, Web Developer Gurugram">
+    <meta name="author" content="Saroj Kumar">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <script src="page.js"></script>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/pfimg.jpg">
 </head>
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="images/img7.JPG" class="logo">
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Protfolio</a></li>
-                    <li><a href="#Contact">Contact</a></li>
-                    <li><a href="https://github.com/saojakumar?tab=repositories" target="_blank">GitHub</a></li>
-                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
-                </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+    <!-- Ambient Particle / Mesh Canvas -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navigation Header -->
+    <header id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">Saroj<span class="logo-accent">.dev</span></span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="images/Soroj Kumar's.pdf" target="_blank" class="nav-resume-btn" download>
+                    <i class="fa-solid fa-file-arrow-down"></i> Resume
+                </a>
             </nav>
-            <div class="header-text">
-                <p>UI/UX Designer</p>
-                <h1>Hi, I'm <span>Saroja</span> Kumar <br>From India</h1>
+
+            <!-- Nav Actions & Mobile Toggle -->
+            <div class="nav-actions">
+                <a href="tel:+918763438220" class="btn btn-call-nav" title="Call directly: +91-8763438220">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Call: 8763438220</span>
+                </a>
+                <a href="#contact" class="btn btn-outline-nav">
+                    <span>Let's Talk</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <a href="#home" class="logo" onclick="closeDrawer()">
+                <span class="logo-symbol">&lt;</span>
+                <span class="logo-text">Saroj<span class="logo-accent">.dev</span></span>
+                <span class="logo-symbol">/&gt;</span>
+            </a>
+            <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <ul class="drawer-links">
+            <li><a href="#home" onclick="closeDrawer()"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="#about" onclick="closeDrawer()"><i class="fa-solid fa-user"></i> About</a></li>
+            <li><a href="#skills" onclick="closeDrawer()"><i class="fa-solid fa-code"></i> Technical Skills</a></li>
+            <li><a href="#experience" onclick="closeDrawer()"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+            <li><a href="#projects" onclick="closeDrawer()"><i class="fa-solid fa-layer-group"></i> Projects</a></li>
+            <li><a href="#services" onclick="closeDrawer()"><i class="fa-solid fa-gears"></i> Services</a></li>
+            <li><a href="#education" onclick="closeDrawer()"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#contact" onclick="closeDrawer()"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="drawer-footer">
+            <a href="images/Soroj Kumar's.pdf" target="_blank" class="btn btn-primary btn-block" download>
+                <i class="fa-solid fa-download"></i> Download Resume
+            </a>
+            <div class="drawer-socials">
+                <a href="https://github.com/saojakumar" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://in.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:beherasarojkumar786@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://wa.me/918763438220" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
         </div>
     </div>
-    <!-------------Abouts---------->
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="images/code.jpg" height="450px" width="200px">
-                </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p> Web Developer, <br>	
-                        I design and code beautifully simple web apps. and i love what i do.<br>
-                            A front-end focused Web Developer building the front-end of websites and Web Applications that leads to the success of the overall Project. 
-                    </p>        
-                            <div class="tab-titles">
-                                <p class="tab-links active-link" onclick="opentab('skills')">Skill's</p>
-                                <p class="tab-links"  onclick="opentab('experience')">Experience</p>
-                                <p class="tab-links"  onclick="opentab('education')">Education's</p>
-                            </div>
-                        <div class="tab-content active-tab" id="skills">
-                            <ul>
-  <li>
-    <span>Frontend</span><br>
-    Angular 16, <b style="color:#ff004f;">HTML5</b>, <b style="color:#ff004f;">CSS3</b>,Bootstrap, SCSS, JavaScript (ES6+), TypeScript, Responsive Design, WCAG Accessibility
-  </li>
-  
-  <li>
-    <span>Backend</span><br>
-    <b style="color:#ff004f;">.NET</b>, RESTful APIs, GraphQL
-  </li>
-  
-  <li>
-    <span>Databases</span><br>
-    MongoDB, MySQL
-  </li>
-  
-  <li>
-    <span>Tools & Platforms</span><br>
-    Git, GitHub, GitHub Actions, Jenkins, Postman, Figma
-  </li>
-  
-  <li>
-    <span>Performance & Monitoring</span><br>
-    Code Splitting, Lazy Loading, Caching Strategies, Google Lighthouse, New Relic
-  </li>
-  
-  <li>
-    <span>Other</span><br>
-    Agile/Scrum, Cross-Browser Compatibility, SEO Best Practices
-  </li>
-</ul>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
-                        </div>
-                        <div class="tab-content" id="experience">
-                            <ul>
-  <li>
-    <span>2025 - Current</span><br>
-    <b>Institute of Chartered Accountants of India (ICAI)</b><br>
-    <i>UI Developer / Full Stack Developer</i>
-    <ul>
-      <li>Developed and deployed multiple public-facing portals serving thousands of concurrent users nationwide.</li>
-      <li>Designed responsive, mobile-first UIs using Angular integrated with .NET backend APIs for real-time data rendering.</li>
-      <li>Implemented search, filtering, authentication, and user dashboards for improved usability and engagement.</li>
-      <li>Optimized site performance via lazy loading, code splitting, caching strategies, and image compression, reducing initial load time by XX%.</li>
-      <li>Ensured WCAG accessibility compliance, SEO best practices, and cross-browser compatibility across Chrome, Firefox, Edge, and Safari.</li>
-      <li>Integrated RESTful / GraphQL APIs for dynamic content loading and interactive features.</li>
-      <li>Automated build and deployment pipelines via Jenkins and GitHub Actions; monitored live performance using Google Lighthouse and New Relic.</li>
-      <li>Collaborated with designers, backend developers, and stakeholders to deliver high-quality products on time.</li>
-    </ul>
-  </li>
-
-</ul>
-
-                        </div>
-                        <div class="tab-content" id="education">
-                            <ul>
-                                <li><span>2018 - 2020</span><br>MCA Complete Khallikot Autonomous College. Berhampur</li>
-                                <li><span>2015 - 2018</span><br>BCA Complete Collge of Bussiness Administration. Berhampur</li>
-                                
-                            </ul>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---------Services-------->
-
-    <div id="services">
-        <div class="container">
-            <h1 class="sub-title">My Services</h1>
-            <div class="services-list">
-              <div>
-                <i class="fa-solid fa-code"></i>
-                <h2>Web Design</h2>
-                <p>
-                    <ul style="color: white;">
-                        <li>Develop single-page applications (SPAs) with smooth navigation</li>
-                        <li>Design interactive UIs with clean animations and accessibility in mind</li>
-                        <li>Integrate with backend APIs for dynamic data-driven features</li>
-                        <li>Optimize performance with lazy loading, caching, and code splitting</li>
-                        <li>Ensure cross-browser compatibility and mobile-first responsiveness.</li>
-                    </ul>
-                </p>
-                     <a href="#">LearnMore</a>
-              </div>
-              <div>
-                <i class="fa-solid fa-crop"></i>
-                <h2>UI/UX Design</h2>
-                <p>
-                    <ul style="color: white;">
-                        <li>Design wireframes & interactive prototypes to visualize ideas before development</li>
-                        <li>Build clean and consistent design systems for scalable applications</li>
-                        <li>Focus on user flows & navigation to reduce friction and improve usability</li>
-                        <li>Apply color psychology, typography, and layout balance to enhance aesthetics</li>
-                        <li>Conduct usability testing & feedback iterations to refine experiences</li>
-                    </ul>
-                </p>
-                <a href="#">LearnMore</a>   
-              </div>
-              <div>
-                <i class="fa-brands fa-app-store"></i>
-                <h2>App Design</h2>
-                <p>
-                    <ul style="color: white;">
-  <li>Create end-to-end app design workflows from sketches to final prototypes</li>
-  <li>Focus on usability and navigation to deliver a smooth user experience</li>
-  <li>Build interactive prototypes to test real-life scenarios before development</li>
-  <li>Design cross-platform interfaces ensuring consistency across devices</li>
-  <li>Collaborate with developers to ensure pixel-perfect implementation</li>
-</ul>
-
-                </p>
-                     <a href="#">LearnMore</a>
-              </div>
-            </div>
-        </div>
-    </div>
-
-    <!----------portfolio-------->
-    <div id="portfolio">
-  <div class="container">
-    <h1 class="sub-title">My Work & Project</h1>
-
-    <!-- First work list -->
-    <div class="work-list">
-      <div class="work">
-        <img src="images/ca-job.jpg" />
-        <div class="layer">
-          <h3>ICAI CA Jobs Portal</h3>
-          <p>
-            Job search & application system with real-time listings, filters, and candidate dashboards.
-          </p>
-
-           <a href="https://cajobs.icai.org/#/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-      <div class="work">
-        <img src="images/cmib.jpg" />
-        <div class="layer">
-          <h3>CMIB Placements Portal</h3>
-          <p>
-            Company registration, candidate shortlisting, and scheduling interface.
-          </p>
-          <a href="https://cmibplacements.icai.org/#/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-      <div class="work">
-        <img src="images/cds.jpg" />
-        <div class="layer">
-          <h3>ICAI CDS Online Shopping Portal</h3>
-          <p>
-            Company registration, candidate shortlisting, and scheduling interface.
-          </p>
-          <a href="https://cds.icai.org/#/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hidden second work list -->
-<!-- Toggle button -->
-<div class="work-list1" id="more-projects" hidden>
-  <div class="work">
-    <img src="images/ira.jpg" />
-    <div class="layer">
-      <h3>ICAI International Research Awards Portal</h3>
-      <p>
-        The Research Committee of the Institute of Chartered Accountants of India, established in 1955, is one of the oldest technical committees dedicated to fostering a strong research culture to enhance professional services. Its primary objective is to conduct research and build institutional capacity in accounting and related fields for the benefit of the profession and the nation.
-      </p>
-      <a href="https://ira.icai.org/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-    </div>
-  </div>
-  <div class="work">
-    <img src="images/research.jpg" />
-    <div class="layer">
-      <h3>ICAI Research Committee Portal</h3>
-      <p>
-        Research Committee also seeks to create a conducive environment for promoting Research & Innovation activities in the profession through its various Research projects, programmes, workshops, seminars etc.
-      </p>
-      <a href="https://research.icai.org/#/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-    </div>
-  </div>
-  <div class="work">
-    <img src="images/bos.jpg" />
-    <div class="layer">
-      <h3>Student Activities Platform Portal</h3>
-      <p>
-        Students Skills enrichment Board (Board of Studies – Operations) organize directly as well as indirectly various educational activities and Programs for the benefit of our students.
-For more details, please visit ICAI website.
-      </p>
-      <a href="https://bosactivities.icai.org/#/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-    </div>
-  </div>
-</div>
-
-    <!-- Toggle button -->
-    <a id="see-more" class="btn" role="button" aria-controls="more-projects" aria-expanded="false">See More</a>
-  </div>
-</div>
-
-    <!----------------------contact---------------->
-    <div id="Contact">
-      <div class="container">
-        <div class="row">
-            <div class="contact-left">
-                <h1 class="sub-title">Contact-Me</h1>
-                <p><i class="fa-sharp fa-solid fa-paper-plane"></i>sk2948295@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i>8763438220</p>
-                <div class="social-icon">
-                    <a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
-                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://twitter.com/i/flow/login"><i class="fa-brands fa-square-twitter"></i></a>
-                    <a href="https://telegram.org/"><i class="fa-brands fa-telegram"></i></a>
-                    <a href="https://in.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
-                </div>
-                <a href="images/Soroj Kumar's.pdf" download class="btn btn2">Download CV</a>
-            </div>
-            <div class="contact-right">
-            <form name="submit-to-google-sheet">
-                <input type="text" name="Name" placeholder="Enter your Name" required>
-                <input type="email" name="Email" placeholder="Enter your Email" required>
-                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                <button type="submit" class="btn btn2">Submit</button>
-            </form>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="glow-orb glow-orb-1"></div>
+            <div class="glow-orb glow-orb-2"></div>
             
-            <span id="msg"></span>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge-status">
+                        <span class="status-dot"></span>
+                        <span>Available for Opportunities &bull; Gurugram / Remote</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">Saroj Kumar</span>
+                    </h1>
+                    
+                    <div class="typing-container">
+                        <span class="typing-prefix">I am a </span>
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="cursor">&nbsp;</span>
+                    </div>
+                    
+                    <p class="hero-desc">
+                        Angular Developer with <strong>3 years of professional experience</strong> building high-performance, responsive enterprise web applications using <strong>Angular 16+, TypeScript, RxJS</strong>, and RESTful APIs. Specializing in mission-critical portals for the <strong>Institute of Chartered Accountants of India (ICAI)</strong>, with additional expertise in React Native (Expo) and WordPress.
+                    </p>
 
-            <!-- <span id="msg">Hello</span> -->
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-        <p>Copyright Saroj. Made with<i class="fa-solid fa-heart"></i> by Saroja Kumar</p>
-    </div>
-</div>
-</body>
-<script>
-    var sidemenu = document.getElementById("sidemenu");
+                    <!-- Quick Hero Meta Tags -->
+                    <div class="hero-tags">
+                        <span class="hero-tag"><i class="fa-brands fa-angular"></i> Angular 16+</span>
+                        <span class="hero-tag"><i class="fa-solid fa-bolt"></i> RxJS &amp; Reactive Forms</span>
+                        <span class="hero-tag"><i class="fa-brands fa-react"></i> React Native (Expo)</span>
+                        <span class="hero-tag"><i class="fa-solid fa-network-wired"></i> REST API Integration</span>
+                    </div>
 
-function openmenu(){
-    sidemenu.style.right = "0";
-}
-function closemenu(){
-    sidemenu.style.right = "-200px";
-}
-</script>
+                    <!-- CTA Actions -->
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>Explore Projects</span>
+                            <i class="fa-solid fa-arrow-down-long"></i>
+                        </a>
+                        <a href="tel:+918763438220" class="btn btn-call-hero" title="Direct Phone Call: +91-8763438220">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <span>Call: 8763438220</span>
+                        </a>
+                        <a href="images/Soroj Kumar's.pdf" class="btn btn-secondary" target="_blank" download>
+                            <i class="fa-solid fa-download"></i>
+                            <span>Get Resume</span>
+                        </a>
+                        <a href="#contact" class="btn btn-ghost">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span>Contact Me</span>
+                        </a>
+                    </div>
 
-<script>
+                    <!-- Quick Direct Contact Links -->
+                    <div class="hero-quick-contact">
+                        <span class="quick-item">
+                            <i class="fa-solid fa-location-dot"></i> Gurugram, India
+                        </span>
+                        <a href="tel:+918763438220" class="quick-item quick-link">
+                            <i class="fa-solid fa-phone"></i> +91-8763438220
+                        </a>
+                        <button class="quick-item quick-copy-btn" onclick="copyToClipboard('beherasarojkumar786@gmail.com', 'Email copied!')" title="Click to copy email">
+                            <i class="fa-solid fa-envelope"></i> beherasarojkumar786@gmail.com
+                            <i class="fa-regular fa-copy copy-icon"></i>
+                        </button>
+                    </div>
+                </div>
 
-function doPost(e) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const data = e.parameter;
+                <!-- Hero Visual / Profile Image Card with Floating Badges -->
+                <div class="hero-visual">
+                    <div class="profile-card-wrapper">
+                        <div class="profile-card-glow"></div>
+                        <div class="profile-card">
+                            <div class="profile-img-box">
+                                <img src="images/pfimg.jpg" alt="Saroj Kumar - Angular Developer" class="profile-img">
+                                <div class="profile-ring"></div>
+                            </div>
 
-  sheet.appendRow([
-    new Date(), 
-    data.Name, 
-    data.Email, 
-    data.Message
-  ]);
+                            <div class="profile-info-pill">
+                                <span class="profile-name">Saroj Kumar</span>
+                                <span class="profile-role">Frontend Engineer &bull; 3 Yrs Exp</span>
+                            </div>
 
-  return ContentService.createTextOutput(
-    JSON.stringify({ result: 'success' })
-  ).setMimeType(ContentService.MimeType.JSON);
-}
+                            <!-- Floating Badges -->
+                            <div class="floating-badge badge-angular" title="Angular 16+ Specialist">
+                                <div class="badge-icon"><i class="fa-brands fa-angular"></i></div>
+                                <div class="badge-text">
+                                    <strong>Angular 16+</strong>
+                                    <span>Core Framework</span>
+                                </div>
+                            </div>
 
+                            <div class="floating-badge badge-rxjs" title="RxJS & Reactive Forms">
+                                <div class="badge-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                                <div class="badge-text">
+                                    <strong>RxJS &amp; Forms</strong>
+                                    <span>Reactive State</span>
+                                </div>
+                            </div>
 
-  const scriptURL = 'https://docs.google.com/spreadsheets/d/1fy1x_CjbgqfeJ34bqolcUDkN47OUOiYYXoA28Qc8MZ8/edit?gid=0#gid=0';
-const form = document.forms['submit-to-google-sheet'];
-const msg = document.getElementById("msg");
+                            <div class="floating-badge badge-client" title="Client: ICAI">
+                                <div class="badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                <div class="badge-text">
+                                    <strong>ICAI Enterprise</strong>
+                                    <span>Client Portals</span>
+                                </div>
+                            </div>
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(response => response.json())   // NEW: read JSON response
-    .then(result => {
-      if(result.result === "success") {
-        msg.innerHTML = "✅ Message Sent Successfully!";
-        setTimeout(() => msg.innerHTML = "", 5000);
-        form.reset();
-      }
-    })
-    .catch(error => {
-      console.error('Error!', error.message);
-      msg.innerHTML = "❌ Something went wrong!";
+                            <div class="floating-badge badge-mobile" title="React Native & Expo">
+                                <div class="badge-icon"><i class="fa-brands fa-react"></i></div>
+                                <div class="badge-text">
+                                    <strong>React Native</strong>
+                                    <span>Mobile Apps</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="container">
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number"><span class="counter" data-target="3">3</span>+</div>
+                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-sub">Frontend &amp; Angular</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number"><span class="counter" data-target="6">6</span>+</div>
+                        <div class="stat-label">ICAI Enterprise Portals</div>
+                        <div class="stat-sub">High-traffic public web apps</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number"><span class="counter" data-target="100">100</span>K+</div>
+                        <div class="stat-label">Users Impacted</div>
+                        <div class="stat-sub">Students, CA members &amp; recruiters</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number"><span class="counter" data-target="1.5">1.5</span>+</div>
+                        <div class="stat-label">Years WordPress/CMS</div>
+                        <div class="stat-sub">WooCommerce &amp; custom UI</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Developer Code Showcase (Interesting Design Feature) -->
+        <section class="code-showcase-section">
+            <div class="container">
+                <div class="code-window">
+                    <div class="code-window-header">
+                        <div class="window-controls">
+                            <span class="control close"></span>
+                            <span class="control minimize"></span>
+                            <span class="control maximize"></span>
+                        </div>
+                        <div class="window-tabs">
+                            <button class="window-tab active" data-tab="angular-tab">
+                                <i class="fa-brands fa-angular" style="color: #dd0031;"></i> saroj.component.ts
+                            </button>
+                            <button class="window-tab" data-tab="skills-tab">
+                                <i class="fa-solid fa-code" style="color: #38bdf8;"></i> tech-stack.json
+                            </button>
+                            <button class="window-tab" data-tab="terminal-tab">
+                                <i class="fa-solid fa-terminal" style="color: #4ade80;"></i> interactive-terminal.sh
+                            </button>
+                        </div>
+                        <button class="copy-code-btn" id="copyCodeBtn" title="Copy snippet">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <div class="code-window-body">
+                        <!-- Tab 1: Angular TS Component -->
+                        <div class="code-tab-content active" id="angular-tab">
+                            <pre><code><span class="c-keyword">import</span> { <span class="c-type">Component</span>, <span class="c-type">OnInit</span> } <span class="c-keyword">from</span> <span class="c-string">'@angular/core'</span>;
+<span class="c-keyword">import</span> { <span class="c-type">Observable</span> } <span class="c-keyword">from</span> <span class="c-string">'rxjs'</span>;
+
+<span class="c-decorator">@Component</span>({
+  <span class="c-prop">selector</span>: <span class="c-string">'app-frontend-engineer'</span>,
+  <span class="c-prop">templateUrl</span>: <span class="c-string">'./saroj-portfolio.html'</span>,
+  <span class="c-prop">styleUrls</span>: [<span class="c-string">'./saroj-portfolio.scss'</span>]
+})
+<span class="c-keyword">export class</span> <span class="c-type">SarojKumarComponent</span> <span class="c-keyword">implements</span> <span class="c-type">OnInit</span> {
+  <span class="c-keyword">readonly</span> <span class="c-prop">developer</span> = {
+    <span class="c-prop">name</span>: <span class="c-string">'Saroj Kumar'</span>,
+    <span class="c-prop">role</span>: <span class="c-string">'Angular Developer | Frontend Engineer'</span>,
+    <span class="c-prop">experience</span>: <span class="c-string">'3 Years Professional Experience'</span>,
+    <span class="c-prop">location</span>: <span class="c-string">'Gurugram, India'</span>,
+    <span class="c-prop">primaryClient</span>: <span class="c-string">'Institute of Chartered Accountants of India (ICAI)'</span>,
+    <span class="c-prop">coreStack</span>: [<span class="c-string">'Angular 16+'</span>, <span class="c-string">'TypeScript'</span>, <span class="c-string">'RxJS'</span>, <span class="c-string">'Reactive Forms'</span>, <span class="c-string">'REST APIs'</span>],
+    <span class="c-prop">mobileStack</span>: [<span class="c-string">'React Native'</span>, <span class="c-string">'Expo'</span>],
+    <span class="c-prop">isOpenToWork</span>: <span class="c-keyword">true</span>
+  };
+
+  <span class="c-function">buildScalableEnterpriseUI</span>(): <span class="c-type">Observable</span>&lt;<span class="c-type">EnterprisePortals</span>&gt; {
+    <span class="c-keyword">return this</span>.deliverFeatureRichPortals({
+      <span class="c-prop">dashboards</span>: <span class="c-string">'Real-time analytics &amp; candidate pipelines'</span>,
+      <span class="c-prop">searchFiltering</span>: <span class="c-string">'High-speed indexing &amp; lazy-loaded feeds'</span>,
+      <span class="c-prop">performance</span>: <span class="c-string">'Optimized bundle sizes, code-splitting &amp; WCAG compliance'</span>
     });
-});
+  }
+}</code></pre>
+                        </div>
 
-</script>
+                        <!-- Tab 2: JSON Tech Stack -->
+                        <div class="code-tab-content" id="skills-tab">
+                            <pre><code>{
+  <span class="c-prop">"engineer"</span>: <span class="c-string">"Saroj Kumar"</span>,
+  <span class="c-prop">"title"</span>: <span class="c-string">"Angular Developer &amp; Frontend Engineer"</span>,
+  <span class="c-prop">"experienceYears"</span>: <span class="c-number">3</span>,
+  <span class="c-prop">"skills"</span>: {
+    <span class="c-prop">"frontend"</span>: [<span class="c-string">"Angular 16+"</span>, <span class="c-string">"TypeScript"</span>, <span class="c-string">"JavaScript (ES6+)"</span>, <span class="c-string">"HTML5"</span>, <span class="c-string">"CSS3"</span>, <span class="c-string">"SCSS"</span>],
+    <span class="c-prop">"angularEcosystem"</span>: [<span class="c-string">"RxJS"</span>, <span class="c-string">"Reactive Forms"</span>, <span class="c-string">"Routing"</span>, <span class="c-string">"Lazy Loading"</span>, <span class="c-string">"Reusable Components"</span>],
+    <span class="c-prop">"mobileAndBackend"</span>: [<span class="c-string">"React Native"</span>, <span class="c-string">"Expo"</span>, <span class="c-string">"REST APIs"</span>, <span class="c-string">"ASP.NET Core (basic)"</span>, <span class="c-string">"Postman"</span>],
+    <span class="c-prop">"cms"</span>: [<span class="c-string">"WordPress"</span>, <span class="c-string">"WooCommerce"</span>, <span class="c-string">"Elementor"</span>, <span class="c-string">"CMS Architecture"</span>],
+    <span class="c-prop">"toolsAndDeploy"</span>: [<span class="c-string">"OpenSearch"</span>, <span class="c-string">"Nginx basics"</span>, <span class="c-string">"Git"</span>, <span class="c-string">"GitHub"</span>, <span class="c-string">"VS Code"</span>]
+  },
+  <span class="c-prop">"education"</span>: {
+    <span class="c-prop">"mca"</span>: { <span class="c-prop">"college"</span>: <span class="c-string">"Khallikot Autonomous College"</span>, <span class="c-prop">"cgpa"</span>: <span class="c-number">8.0</span> },
+    <span class="c-prop">"bca"</span>: { <span class="c-prop">"college"</span>: <span class="c-string">"College of Business Administration"</span>, <span class="c-prop">"percentage"</span>: <span class="c-string">"80%"</span> }
+  }
+}</code></pre>
+                        </div>
 
+                        <!-- Tab 3: Interactive Terminal -->
+                        <div class="code-tab-content" id="terminal-tab">
+                            <div class="terminal-shell">
+                                <div class="terminal-output" id="terminalOutput">
+                                    <p class="term-line"><span class="term-green">saroj@portfolio</span>:<span class="term-blue">~</span>$ Welcome to Saroj's Interactive Terminal CLI!</p>
+                                    <p class="term-line"><span class="term-gray">Type a command or click a quick action:</span></p>
+                                    <div class="term-actions">
+                                        <button class="term-btn" onclick="runTermCommand('skills')">skills</button>
+                                        <button class="term-btn" onclick="runTermCommand('experience')">experience</button>
+                                        <button class="term-btn" onclick="runTermCommand('projects')">projects</button>
+                                        <button class="term-btn" onclick="runTermCommand('contact')">contact</button>
+                                        <button class="term-btn" onclick="runTermCommand('clear')">clear</button>
+                                    </div>
+                                </div>
+                                <div class="terminal-input-row">
+                                    <span class="term-prompt">saroj@dev:~$</span>
+                                    <input type="text" id="terminalInput" class="term-input" placeholder="Type 'help', 'skills', 'projects'..." autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Professional Overview</span>
+                    <h2 class="section-title">Crafting Scalable, Resilient <span class="gradient-text">Web &amp; Mobile Solutions</span></h2>
+                    <p class="section-sub">A focused look at my journey, technical background, and passion for engineering superior user experiences.</p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Left: Profile Info Card -->
+                    <div class="about-card-left">
+                        <div class="about-photo-wrapper">
+                            <img src="images/pfimg111.jpg" alt="Saroj Kumar" class="about-photo">
+                            <div class="about-badge-exp">
+                                <span class="exp-num">3+</span>
+                                <span class="exp-txt">Years of<br>Experience</span>
+                            </div>
+                        </div>
+
+                        <div class="about-personal-details">
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-user-check"></i> Full Name</span>
+                                <span class="detail-val">Saroj Kumar</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-code"></i> Specialization</span>
+                                <span class="detail-val">Angular Developer / Frontend Engineer</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-location-dot"></i> Location</span>
+                                <span class="detail-val">Gurugram, India</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-envelope"></i> Email</span>
+                                <span class="detail-val email-val" onclick="copyToClipboard('beherasarojkumar786@gmail.com', 'Email copied!')" title="Click to copy">
+                                    beherasarojkumar786@gmail.com
+                                </span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-phone"></i> Phone</span>
+                                <span class="detail-val">+91-8763438220</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label"><i class="fa-solid fa-graduation-cap"></i> Education</span>
+                                <span class="detail-val">MCA (CGPA 8.0) &bull; BCA (80%)</span>
+                            </div>
+                        </div>
+
+                        <div class="about-actions">
+                            <a href="images/Soroj Kumar's.pdf" class="btn btn-primary btn-block" download target="_blank">
+                                <i class="fa-solid fa-file-pdf"></i> Download Official Resume
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Narrative & Key Strengths -->
+                    <div class="about-card-right">
+                        <div class="about-bio">
+                            <h3>Hi there! I build modern web applications that deliver real impact.</h3>
+                            <p>
+                                I am an <strong>Angular Developer &amp; Frontend Engineer</strong> with <strong>3 years of experience</strong> architecting and implementing responsive, scalable, and intuitive enterprise applications using <strong>Angular 16+, TypeScript, JavaScript, and RxJS</strong>.
+                            </p>
+                            <p>
+                                Over the last 2+ years at <strong>KOPSCO Pvt Solution</strong>, I have served as the key frontend engineer for our premier client, the <strong>Institute of Chartered Accountants of India (ICAI)</strong>. In this capacity, I have engineered multiple high-visibility portals, including the <em>CA Jobs Portal</em>, <em>CMIB Placements Portal</em>, <em>Alumni Portal</em>, and <em>Student Activities Platform</em>, serving tens of thousands of active users nationwide.
+                            </p>
+                            <p>
+                                Beyond Angular, I bring hands-on mobile development experience in <strong>React Native (Expo)</strong> for iOS/Android apps, backend integration with <strong>.NET REST APIs</strong>, server setup with <strong>Nginx</strong>, and <strong>1.5 years of professional WordPress &amp; WooCommerce development</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Feature Pillars Grid -->
+                        <div class="pillars-grid">
+                            <div class="pillar-card">
+                                <div class="pillar-icon"><i class="fa-brands fa-angular"></i></div>
+                                <h4>Angular 16+ Architecture</h4>
+                                <p>Deep expertise in RxJS reactive streams, modular components, reactive form validation, routing guards, and lazy loading strategies.</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <div class="pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+                                <h4>Enterprise Dashboards</h4>
+                                <p>Building clean, data-intensive candidate, recruiter, and administrator portals with real-time analytics and dynamic search/filtering.</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <div class="pillar-icon"><i class="fa-brands fa-react"></i></div>
+                                <h4>Mobile &amp; React Native</h4>
+                                <p>Creating cross-platform mobile screens using Expo with clean native transitions, state management, and API-connected workflows.</p>
+                            </div>
+
+                            <div class="pillar-card">
+                                <div class="pillar-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                                <h4>Speed &amp; Performance</h4>
+                                <p>Applying code splitting, asset optimization, OpenSearch indexing, and WCAG accessibility standards to ensure swift, compliant experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Technical Competencies</span>
+                    <h2 class="section-title">My Tech <span class="gradient-text">Arsenal &amp; Expertise</span></h2>
+                    <p class="section-sub">Comprehensive toolkit leveraged to build scalable web portals, cross-platform apps, and enterprise UI systems.</p>
+                </div>
+
+                <div class="skills-matrix">
+                    <!-- Category 1: Frontend Core & Angular -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon" style="color: #dd0031; background: rgba(221, 0, 49, 0.1);">
+                                <i class="fa-brands fa-angular"></i>
+                            </div>
+                            <div>
+                                <h3>Frontend &amp; Angular Core</h3>
+                                <span class="category-subtitle">Core Specialization (3 Years)</span>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <div class="skill-badge"><i class="fa-brands fa-angular"></i> Angular 16+</div>
+                            <div class="skill-badge"><i class="fa-solid fa-bolt"></i> RxJS</div>
+                            <div class="skill-badge"><i class="fa-solid fa-pen-to-square"></i> Reactive Forms</div>
+                            <div class="skill-badge"><i class="fa-solid fa-route"></i> Routing &amp; Guards</div>
+                            <div class="skill-badge"><i class="fa-solid fa-spinner"></i> Lazy Loading</div>
+                            <div class="skill-badge"><i class="fa-brands fa-js"></i> TypeScript</div>
+                            <div class="skill-badge"><i class="fa-brands fa-square-js"></i> JavaScript (ES6+)</div>
+                            <div class="skill-badge"><i class="fa-brands fa-html5"></i> HTML5</div>
+                            <div class="skill-badge"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+                            <div class="skill-badge"><i class="fa-brands fa-sass"></i> SCSS / SASS</div>
+                            <div class="skill-badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
+                            <div class="skill-badge"><i class="fa-solid fa-cube"></i> Reusable Components</div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Mobile & Backend Exposure -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon" style="color: #61dafb; background: rgba(97, 218, 251, 0.1);">
+                                <i class="fa-brands fa-react"></i>
+                            </div>
+                            <div>
+                                <h3>Mobile &amp; Backend APIs</h3>
+                                <span class="category-subtitle">Cross-Platform &amp; Integration</span>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <div class="skill-badge"><i class="fa-brands fa-react"></i> React Native</div>
+                            <div class="skill-badge"><i class="fa-solid fa-mobile-screen"></i> Expo Framework</div>
+                            <div class="skill-badge"><i class="fa-solid fa-network-wired"></i> RESTful APIs</div>
+                            <div class="skill-badge"><i class="fa-solid fa-vial-circle-check"></i> Postman</div>
+                            <div class="skill-badge"><i class="fa-solid fa-server"></i> ASP.NET Core (Basic)</div>
+                            <div class="skill-badge"><i class="fa-solid fa-diagram-project"></i> .NET REST APIs</div>
+                            <div class="skill-badge"><i class="fa-solid fa-comments"></i> Real-time Chat Interfaces</div>
+                            <div class="skill-badge"><i class="fa-solid fa-language"></i> Translation &amp; i18n</div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: CMS & E-Commerce -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon" style="color: #21759b; background: rgba(33, 117, 155, 0.1);">
+                                <i class="fa-brands fa-wordpress"></i>
+                            </div>
+                            <div>
+                                <h3>WordPress &amp; CMS</h3>
+                                <span class="category-subtitle">1.5 Years Hands-On Experience</span>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <div class="skill-badge"><i class="fa-brands fa-wordpress-simple"></i> WordPress Core</div>
+                            <div class="skill-badge"><i class="fa-solid fa-cart-shopping"></i> WooCommerce</div>
+                            <div class="skill-badge"><i class="fa-solid fa-cubes"></i> Elementor Page Builder</div>
+                            <div class="skill-badge"><i class="fa-solid fa-file-invoice"></i> CMS Landing Pages</div>
+                            <div class="skill-badge"><i class="fa-solid fa-store"></i> E-Commerce Layouts</div>
+                            <div class="skill-badge"><i class="fa-solid fa-list-check"></i> Product Listings</div>
+                            <div class="skill-badge"><i class="fa-solid fa-magnifying-glass"></i> SEO Best Practices</div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Tools, DevOps & Practices -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <div>
+                                <h3>Tools &amp; Infrastructure</h3>
+                                <span class="category-subtitle">Developer Workflow &amp; Delivery</span>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <div class="skill-badge"><i class="fa-brands fa-git-alt"></i> Git Version Control</div>
+                            <div class="skill-badge"><i class="fa-brands fa-github"></i> GitHub</div>
+                            <div class="skill-badge"><i class="fa-solid fa-code"></i> VS Code</div>
+                            <div class="skill-badge"><i class="fa-solid fa-server"></i> Nginx Basics</div>
+                            <div class="skill-badge"><i class="fa-solid fa-magnifying-glass-chart"></i> OpenSearch</div>
+                            <div class="skill-badge"><i class="fa-solid fa-cloud-arrow-up"></i> Web Deployment</div>
+                            <div class="skill-badge"><i class="fa-solid fa-universal-access"></i> WCAG Accessibility</div>
+                            <div class="skill-badge"><i class="fa-solid fa-mobile-screen-button"></i> Mobile-First Design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience Timeline Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Career History</span>
+                    <h2 class="section-title">Professional <span class="gradient-text">Experience</span></h2>
+                    <p class="section-sub">Documented track record of delivering enterprise-level applications and scalable frontend solutions.</p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Experience 1: Kopsco / ICAI -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-role-info">
+                                    <span class="company-badge">Enterprise Client &bull; ICAI</span>
+                                    <h3 class="timeline-role">Angular Developer</h3>
+                                    <h4 class="timeline-company">KOPSCO PVT SOLUTION, GURUGRAM</h4>
+                                </div>
+                                <div class="timeline-period">
+                                    <span class="period-pill"><i class="fa-regular fa-calendar"></i> Jan 2023 &ndash; Present</span>
+                                    <span class="location-pill"><i class="fa-solid fa-location-dot"></i> Gurugram, India</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-body">
+                                <p class="timeline-summary">
+                                    <strong>Primary Client: Institute of Chartered Accountants of India (ICAI)</strong> &mdash; Leading the frontend development of public-facing and internal recruitment, placement, and academic platforms.
+                                </p>
+                                
+                                <ul class="timeline-points">
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span><strong>Enterprise Portals &amp; Dashboards:</strong> Architected and delivered responsive Angular portals, role-based dashboards, and reusable component libraries connected with .NET REST APIs.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span><strong>Complex Search, Filters &amp; Lazy Loading:</strong> Implemented real-time search &amp; filtering modules with OpenSearch integration and lazy loading, improving user workflow speed and load times.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span><strong>Interactive Features:</strong> Engineered dynamic chatboard interfaces, interactive resume-builder modules, multi-step reactive forms, and multi-language translation capabilities.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span><strong>React Native (Expo) Mobile Apps:</strong> Developed cross-platform mobile application screens and API-connected workflows for ICAI mobile initiatives.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span><strong>Backend Exposure &amp; Deployment:</strong> Built simple REST APIs using .NET, configured basic Nginx reverse proxy settings, and supported deployment cycles.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span><strong>Cross-Functional Collaboration:</strong> Partnered closely with backend engineers, UX designers, and stakeholders on debugging, integration, and agile delivery.</span>
+                                    </li>
+                                </ul>
+
+                                <div class="timeline-tags">
+                                    <span class="t-tag">Angular 16+</span>
+                                    <span class="t-tag">TypeScript</span>
+                                    <span class="t-tag">RxJS</span>
+                                    <span class="t-tag">Reactive Forms</span>
+                                    <span class="t-tag">React Native (Expo)</span>
+                                    <span class="t-tag">REST APIs</span>
+                                    <span class="t-tag">OpenSearch</span>
+                                    <span class="t-tag">Nginx</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2: WordPress Development -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-role-info">
+                                    <span class="company-badge cms-badge">1.5 Years Experience</span>
+                                    <h3 class="timeline-role">WordPress &amp; Web Developer</h3>
+                                    <h4 class="timeline-company">Professional Web Development</h4>
+                                </div>
+                                <div class="timeline-period">
+                                    <span class="period-pill"><i class="fa-regular fa-clock"></i> 1.5 Years</span>
+                                    <span class="location-pill"><i class="fa-solid fa-laptop-code"></i> Web &amp; E-Commerce</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-body">
+                                <ul class="timeline-points">
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span>Built and customized responsive WordPress websites using Elementor and WooCommerce for diverse client requirements.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span>Created dynamic CMS pages, custom product catalogs, shopping carts, and tailored e-commerce checkout flows.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span>Ensured mobile-first responsiveness, cross-browser consistency, and speed optimizations across desktop and mobile devices.</span>
+                                    </li>
+                                </ul>
+
+                                <div class="timeline-tags">
+                                    <span class="t-tag">WordPress</span>
+                                    <span class="t-tag">WooCommerce</span>
+                                    <span class="t-tag">Elementor</span>
+                                    <span class="t-tag">HTML5/CSS3</span>
+                                    <span class="t-tag">CMS Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Projects Section -->
+        <section id="projects" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Featured Portfolio</span>
+                    <h2 class="section-title">Selected Projects &amp; <span class="gradient-text">Enterprise Portals</span></h2>
+                    <p class="section-sub">Showcasing real-world enterprise platforms engineered for ICAI and cutting-edge web applications.</p>
+                </div>
+
+                <!-- Project Category Filter Tabs -->
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects (<span id="count-all">10</span>)</button>
+                    <button class="filter-btn" data-filter="angular">Enterprise Angular</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile &amp; React Native</button>
+                    <button class="filter-btn" data-filter="ecommerce">E-Commerce &amp; Portals</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Project 1: ICAI CA Jobs Portal -->
+                    <div class="project-card" data-category="angular" data-project="ca-jobs">
+                        <div class="project-img-box">
+                            <img src="images/ca-job.jpg" alt="ICAI CA Jobs Portal" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://cajobs.icai.org/#/" target="_blank" class="overlay-btn" title="Visit Live Portal">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Portal
+                                </a>
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('ca-jobs')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill angular-pill">Enterprise Angular</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI CA Jobs Portal</h3>
+                            <p class="project-desc">
+                                High-volume job-search and recruitment platform for chartered accountants nationwide. Built with responsive interfaces, search/filtering, and candidate dashboards.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> REST API-driven search &amp; filter engine</li>
+                                <li><i class="fa-solid fa-check"></i> Reusable Angular components &amp; lazy loading</li>
+                                <li><i class="fa-solid fa-check"></i> Candidate resume builder &amp; recruiter dashboard</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular 16+</span>
+                                <span>TypeScript</span>
+                                <span>RxJS</span>
+                                <span>REST APIs</span>
+                                <span>OpenSearch</span>
+                            </div>
+                            <div class="project-footer">
+                                <a href="https://cajobs.icai.org/#/" target="_blank" class="project-link">
+                                    <span>cajobs.icai.org</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                <button class="details-text-btn" onclick="openProjectModal('ca-jobs')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: ICAI CMIB Placements Portal -->
+                    <div class="project-card" data-category="angular" data-project="cmib">
+                        <div class="project-img-box">
+                            <img src="images/cmib.jpg" alt="ICAI CMIB Placements Portal" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://cmibplacements.icai.org/#/" target="_blank" class="overlay-btn" title="Visit Live Portal">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Portal
+                                </a>
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('cmib')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill angular-pill">Enterprise Angular</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI CMIB Placements Portal</h3>
+                            <p class="project-desc">
+                                Campus placement &amp; corporate recruitment system. Streamlines candidate profiles, corporate registrations, interview scheduling, and placement workflows.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> Corporate registration &amp; candidate verification</li>
+                                <li><i class="fa-solid fa-check"></i> Multi-round interview scheduling matrix</li>
+                                <li><i class="fa-solid fa-check"></i> Real-time placement status tracking</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular</span>
+                                <span>Reactive Forms</span>
+                                <span>REST APIs</span>
+                                <span>Routing</span>
+                                <span>Bootstrap</span>
+                            </div>
+                            <div class="project-footer">
+                                <a href="https://cmibplacements.icai.org/#/" target="_blank" class="project-link">
+                                    <span>cmibplacements.icai.org</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                <button class="details-text-btn" onclick="openProjectModal('cmib')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: ICAI Alumni Project & Mobile App -->
+                    <div class="project-card" data-category="mobile" data-project="alumni">
+                        <div class="project-img-box">
+                            <img src="images/5881573.jpg" alt="ICAI Alumni Project & Mobile App" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('alumni')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Case Study
+                                </button>
+                            </div>
+                            <span class="project-pill mobile-pill">Mobile &amp; Web</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI Alumni Project &amp; Mobile App</h3>
+                            <p class="project-desc">
+                                Comprehensive networking platform and mobile application connecting ICAI alumni and mentors worldwide. Includes mentor/mentee dashboards and real-time chat.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> React Native (Expo) mobile screens</li>
+                                <li><i class="fa-solid fa-check"></i> Real-time chatboard &amp; messaging interfaces</li>
+                                <li><i class="fa-solid fa-check"></i> Mentor-mentee connection views &amp; testimonials</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>React Native</span>
+                                <span>Expo</span>
+                                <span>Angular</span>
+                                <span>REST APIs</span>
+                                <span>WebSockets</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="project-status-tag"><i class="fa-solid fa-shield-check"></i> Enterprise ICAI</span>
+                                <button class="details-text-btn" onclick="openProjectModal('alumni')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: ICAI MDP Project -->
+                    <div class="project-card" data-category="angular" data-project="mdp">
+                        <div class="project-img-box">
+                            <img src="images/work-2.png" alt="ICAI MDP Project" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('mdp')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill angular-pill">Enterprise Angular</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI MDP (Management Dev Programs)</h3>
+                            <p class="project-desc">
+                                Specialized portal for ICAI's executive and management development programs. Engineered program-related frontend screens and interactive registration forms.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> Dynamic program registration workflows</li>
+                                <li><i class="fa-solid fa-check"></i> Participant dashboards with schedule tracking</li>
+                                <li><i class="fa-solid fa-check"></i> Seamless REST API data synchronization</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular 16+</span>
+                                <span>TypeScript</span>
+                                <span>RxJS</span>
+                                <span>REST APIs</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="project-status-tag"><i class="fa-solid fa-building-columns"></i> ICAI Academic</span>
+                                <button class="details-text-btn" onclick="openProjectModal('mdp')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: ICAI IPD Project -->
+                    <div class="project-card" data-category="angular" data-project="ipd">
+                        <div class="project-img-box">
+                            <img src="images/work-3.png" alt="ICAI IPD Project" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('ipd')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill angular-pill">Enterprise Angular</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI IPD Project</h3>
+                            <p class="project-desc">
+                                Contributed to responsive frontend screens, robust multi-step form handling, and data-driven program workflows with secure REST API connectivity.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> Complex reactive form validation &amp; state</li>
+                                <li><i class="fa-solid fa-check"></i> Document upload and verification UI</li>
+                                <li><i class="fa-solid fa-check"></i> Responsive cross-device interface</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular</span>
+                                <span>Reactive Forms</span>
+                                <span>SCSS</span>
+                                <span>REST APIs</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="project-status-tag"><i class="fa-solid fa-award"></i> Professional Portal</span>
+                                <button class="details-text-btn" onclick="openProjectModal('ipd')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: ICAI FTL Project -->
+                    <div class="project-card" data-category="angular" data-project="ftl">
+                        <div class="project-img-box">
+                            <img src="images/work-1.png" alt="ICAI FTL Project" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('ftl')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill angular-pill">Enterprise Angular</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI FTL Project (Faculty &amp; Training)</h3>
+                            <p class="project-desc">
+                                Built application UI and functional modules using reusable components, responsive layouts, and API-based data display for faculty resource management.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> Modular component architecture</li>
+                                <li><i class="fa-solid fa-check"></i> Training schedule &amp; faculty allocation views</li>
+                                <li><i class="fa-solid fa-check"></i> Optimized API payload rendering</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular</span>
+                                <span>TypeScript</span>
+                                <span>CSS Grid</span>
+                                <span>REST APIs</span>
+                            </div>
+                            <div class="project-footer">
+                                <span class="project-status-tag"><i class="fa-solid fa-users"></i> Faculty Link</span>
+                                <button class="details-text-btn" onclick="openProjectModal('ftl')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7: ICAI CDS Online Shopping Portal -->
+                    <div class="project-card" data-category="ecommerce" data-project="cds">
+                        <div class="project-img-box">
+                            <img src="images/cds.jpg" alt="ICAI CDS Online Shopping Portal" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://cds.icai.org/#/" target="_blank" class="overlay-btn" title="Visit Live Portal">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Portal
+                                </a>
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('cds')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill ecommerce-pill">E-Commerce &amp; Portals</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI CDS Shopping Portal</h3>
+                            <p class="project-desc">
+                                Official centralized distribution system and online store for ICAI study materials, publications, and merchandise with shopping cart workflows.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> Product listings, categories, and inventory display</li>
+                                <li><i class="fa-solid fa-check"></i> Interactive shopping cart &amp; checkout interfaces</li>
+                                <li><i class="fa-solid fa-check"></i> Order history &amp; shipment tracking UI</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular</span>
+                                <span>REST APIs</span>
+                                <span>E-Commerce</span>
+                                <span>Bootstrap</span>
+                            </div>
+                            <div class="project-footer">
+                                <a href="https://cds.icai.org/#/" target="_blank" class="project-link">
+                                    <span>cds.icai.org</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                <button class="details-text-btn" onclick="openProjectModal('cds')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 8: ICAI International Research Awards (IRA) -->
+                    <div class="project-card" data-category="angular" data-project="ira">
+                        <div class="project-img-box">
+                            <img src="images/ira.jpg" alt="ICAI IRA Portal" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://ira.icai.org/" target="_blank" class="overlay-btn" title="Visit Live Portal">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Portal
+                                </a>
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('ira')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill angular-pill">Enterprise Angular</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI International Research Awards</h3>
+                            <p class="project-desc">
+                                International awards nomination and evaluation portal fostering accounting research culture. Multi-step submission workflows and reviewer scoring modules.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> Paper submission &amp; PDF document preview</li>
+                                <li><i class="fa-solid fa-check"></i> Multi-tier jury evaluation dashboard</li>
+                                <li><i class="fa-solid fa-check"></i> International participant registration</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular</span>
+                                <span>TypeScript</span>
+                                <span>REST APIs</span>
+                                <span>SCSS</span>
+                            </div>
+                            <div class="project-footer">
+                                <a href="https://ira.icai.org/" target="_blank" class="project-link">
+                                    <span>ira.icai.org</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                <button class="details-text-btn" onclick="openProjectModal('ira')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 9: ICAI Research Committee Portal -->
+                    <div class="project-card" data-category="angular" data-project="research">
+                        <div class="project-img-box">
+                            <img src="images/research.jpg" alt="ICAI Research Committee Portal" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://research.icai.org/#/" target="_blank" class="overlay-btn" title="Visit Live Portal">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Portal
+                                </a>
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('research')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill angular-pill">Enterprise Angular</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">ICAI Research Committee Portal</h3>
+                            <p class="project-desc">
+                                Dedicated knowledge portal promoting research, innovation, publications, seminars, and workshops in accounting and finance.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> Publications archive with searchable catalogs</li>
+                                <li><i class="fa-solid fa-check"></i> Workshop registration and announcements</li>
+                                <li><i class="fa-solid fa-check"></i> Content management and REST API feeds</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular</span>
+                                <span>RxJS</span>
+                                <span>REST APIs</span>
+                                <span>Responsive UI</span>
+                            </div>
+                            <div class="project-footer">
+                                <a href="https://research.icai.org/#/" target="_blank" class="project-link">
+                                    <span>research.icai.org</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                <button class="details-text-btn" onclick="openProjectModal('research')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 10: Student Activities Platform (BOS) -->
+                    <div class="project-card" data-category="angular" data-project="bos">
+                        <div class="project-img-box">
+                            <img src="images/bos.jpg" alt="Student Activities Platform Portal" class="project-img" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://bosactivities.icai.org/#/" target="_blank" class="overlay-btn" title="Visit Live Portal">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Portal
+                                </a>
+                                <button class="overlay-btn btn-modal-trigger" onclick="openProjectModal('bos')" title="View Case Study">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </button>
+                            </div>
+                            <span class="project-pill angular-pill">Enterprise Angular</span>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Student Activities Platform (BOS)</h3>
+                            <p class="project-desc">
+                                Board of Studies (Operations) platform organizing student skills enrichment activities, elocution contests, quiz competitions, and national programs.
+                            </p>
+                            <ul class="project-features">
+                                <li><i class="fa-solid fa-check"></i> Nationwide event calendar &amp; student enrollment</li>
+                                <li><i class="fa-solid fa-check"></i> Interactive forms for competition submissions</li>
+                                <li><i class="fa-solid fa-check"></i> High-traffic responsive UI architecture</li>
+                            </ul>
+                            <div class="project-tech-stack">
+                                <span>Angular</span>
+                                <span>Reactive Forms</span>
+                                <span>REST APIs</span>
+                                <span>Responsive UI</span>
+                            </div>
+                            <div class="project-footer">
+                                <a href="https://bosactivities.icai.org/#/" target="_blank" class="project-link">
+                                    <span>bosactivities.icai.org</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                                <button class="details-text-btn" onclick="openProjectModal('bos')">Case Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Value Proposition</span>
+                    <h2 class="section-title">What I Bring To <span class="gradient-text">Your Team &amp; Projects</span></h2>
+                    <p class="section-sub">End-to-end frontend craftsmanship from design systems and SPAs to mobile screens and CMS integrations.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1: Angular SPAs -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-brands fa-angular"></i>
+                        </div>
+                        <h3>Angular Enterprise SPAs</h3>
+                        <p>
+                            Scalable Single-Page Applications engineered with clean architecture, modular lazy loading, robust RxJS state management, and strict TypeScript patterns.
+                        </p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-angle-right"></i> Fast initial load times with lazy routing</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Type-safe REST API integration</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Reusable design systems &amp; UI component libraries</li>
+                            <li><i class="fa-solid fa-angle-right"></i> WCAG accessibility and cross-browser consistency</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2: Mobile Apps with React Native -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-brands fa-react"></i>
+                        </div>
+                        <h3>Cross-Platform Mobile Apps</h3>
+                        <p>
+                            Cross-platform iOS and Android mobile screens created using React Native and Expo framework, connected seamlessly to backend microservices and APIs.
+                        </p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-angle-right"></i> Smooth navigation flows &amp; mobile UI ergonomics</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Offline caching and real-time API syncing</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Chat interfaces, profile views &amp; notifications</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Rapid Expo prototyping and testing</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3: Complex Dashboards & Portals -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-table-columns"></i>
+                        </div>
+                        <h3>Interactive Dashboards &amp; Portals</h3>
+                        <p>
+                            High-density administrative and analytical dashboards designed to make complex business data intuitive, actionable, and rapid to filter.
+                        </p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-angle-right"></i> Multi-field search, filtering &amp; sorting with OpenSearch</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Multi-step reactive forms with dynamic validations</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Resume-builder tools &amp; document previews</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Multi-role access (Admin, Recruiter, Candidate)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 4: WordPress & E-Commerce -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-brands fa-wordpress"></i>
+                        </div>
+                        <h3>WordPress &amp; E-Commerce</h3>
+                        <p>
+                            1.5 years of experience delivering tailored WordPress websites, WooCommerce shopping solutions, and custom Elementor layouts.
+                        </p>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-angle-right"></i> Custom responsive Elementor page layouts</li>
+                            <li><i class="fa-solid fa-angle-right"></i> WooCommerce store setup, catalogs &amp; checkout</li>
+                            <li><i class="fa-solid fa-angle-right"></i> SEO optimization, caching &amp; speed audits</li>
+                            <li><i class="fa-solid fa-angle-right"></i> Easy-to-manage CMS handoff for non-technical teams</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Academic Background</span>
+                    <h2 class="section-title">Education &amp; <span class="gradient-text">Qualifications</span></h2>
+                    <p class="section-sub">Strong computer science foundation supporting my engineering career.</p>
+                </div>
+
+                <div class="education-grid">
+                    <!-- MCA -->
+                    <div class="education-card">
+                        <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="edu-badge">Postgraduate</div>
+                        <div class="edu-content">
+                            <h3>Master of Computer Applications (MCA)</h3>
+                            <h4 class="edu-institution">Khallikot Autonomous College, Berhampur</h4>
+                            <div class="edu-score">
+                                <span class="score-label">Graduation Score:</span>
+                                <span class="score-pill">CGPA: 8.0 / 10</span>
+                            </div>
+                            <p class="edu-desc">
+                                Specialized in Advanced Software Engineering, Web Technologies, Database Architecture, Object-Oriented System Design, and Enterprise Application Development.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- BCA -->
+                    <div class="education-card">
+                        <div class="edu-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="edu-badge">Undergraduate</div>
+                        <div class="edu-content">
+                            <h3>Bachelor of Computer Applications (BCA)</h3>
+                            <h4 class="edu-institution">College of Business Administration, Berhampur</h4>
+                            <div class="edu-score">
+                                <span class="score-label">Graduation Score:</span>
+                                <span class="score-pill">80% First Class</span>
+                            </div>
+                            <p class="edu-desc">
+                                Core coursework in Data Structures, Algorithms, Programming in C/C++/Java, Web Development Foundations, Networking, and Database Systems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Let's Build Something <span class="gradient-text">Exceptional Together</span></h2>
+                    <p class="section-sub">Open to full-time Frontend Engineer / Angular Developer opportunities, contract projects, and technical discussions.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Contact Info Card -->
+                    <div class="contact-card-info">
+                        <div class="contact-intro">
+                            <h3>Contact Information</h3>
+                            <p>
+                                Feel free to reach out directly via email, phone, or WhatsApp. I usually respond within a few hours!
+                            </p>
+                        </div>
+
+                        <div class="contact-details-list">
+                            <!-- Email -->
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="c-text">
+                                    <span class="c-label">Email Address</span>
+                                    <a href="mailto:beherasarojkumar786@gmail.com" class="c-val">beherasarojkumar786@gmail.com</a>
+                                    <button class="c-copy-btn" onclick="copyToClipboard('beherasarojkumar786@gmail.com', 'Email copied to clipboard!')">
+                                        <i class="fa-regular fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="c-text">
+                                    <span class="c-label">Mobile Number</span>
+                                    <a href="tel:+918763438220" class="c-val">+91-8763438220</a>
+                                    <button class="c-copy-btn" onclick="copyToClipboard('+918763438220', 'Phone copied to clipboard!')">
+                                        <i class="fa-regular fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Location -->
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="c-text">
+                                    <span class="c-label">Current Location</span>
+                                    <span class="c-val">Gurugram, Haryana, India</span>
+                                </div>
+                            </div>
+
+                            <!-- Availability -->
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-briefcase"></i></div>
+                                <div class="c-text">
+                                    <span class="c-label">Availability</span>
+                                    <span class="c-val">Immediate Joiner / Open for Roles</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Direct Quick Connect Buttons -->
+                        <div class="quick-connect-actions">
+                            <a href="https://wa.me/918763438220" target="_blank" class="quick-btn whatsapp-btn">
+                                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                            <a href="tel:+918763438220" class="quick-btn call-btn">
+                                <i class="fa-solid fa-phone"></i> Call Direct
+                            </a>
+                            <a href="images/Soroj Kumar's.pdf" target="_blank" class="quick-btn resume-btn" download>
+                                <i class="fa-solid fa-download"></i> Download Resume
+                            </a>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="contact-socials">
+                            <span>Connect Online:</span>
+                            <div class="social-links">
+                                <a href="https://github.com/saojakumar" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                                <a href="https://in.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="https://wa.me/918763438220" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="mailto:beherasarojkumar786@gmail.com" aria-label="Email"><i class="fa-solid fa-paper-plane"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Card -->
+                    <div class="contact-card-form">
+                        <!-- Direct Call Banner -->
+                        <div class="direct-call-banner">
+                            <div class="banner-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                            <div class="banner-info">
+                                <span class="banner-subtitle">Need an immediate answer?</span>
+                                <span class="banner-title">Direct Call: <a href="tel:+918763438220" class="banner-phone-link">+91-8763438220</a></span>
+                            </div>
+                            <a href="tel:+918763438220" class="btn btn-call-now" title="Direct Phone Call">
+                                <i class="fa-solid fa-phone"></i> Dial Direct
+                            </a>
+                        </div>
+
+                        <h3>Send a Message</h3>
+                        <p class="form-sub">Submissions are sent directly to <strong>beherasarojkumar786@gmail.com</strong>.</p>
+                        
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="nameInput">Your Name *</label>
+                                <div class="input-wrap">
+                                    <i class="fa-regular fa-user input-icon"></i>
+                                    <input type="text" id="nameInput" name="name" placeholder="e.g. Rahul Sharma" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emailInput">Your Email Address *</label>
+                                <div class="input-wrap">
+                                    <i class="fa-regular fa-envelope input-icon"></i>
+                                    <input type="email" id="emailInput" name="email" placeholder="e.g. rahul@company.com" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subjectInput">Subject</label>
+                                <div class="input-wrap">
+                                    <i class="fa-solid fa-tag input-icon"></i>
+                                    <input type="text" id="subjectInput" name="subject" placeholder="e.g. Frontend Angular Role / Freelance Project">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="messageInput">Your Message *</label>
+                                <div class="input-wrap">
+                                    <textarea id="messageInput" name="message" rows="5" placeholder="Share project details, job description, or message..." required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-actions-row">
+                                <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+                                    <span class="btn-text">Send Message</span>
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                                <button type="button" class="btn btn-gmail" onclick="openDirectGmail()" title="Open pre-filled in Gmail">
+                                    <i class="fa-brands fa-google"></i>
+                                    <span>Compose in Gmail</span>
+                                </button>
+                            </div>
+
+                            <div class="form-delivery-guarantee">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Direct Inbox Delivery: <strong>beherasarojkumar786@gmail.com</strong></span>
+                            </div>
+                        </form>
+
+                        <div id="formFeedback" class="form-feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Details Modal (Interesting Interactive Feature) -->
+    <div class="modal-backdrop" id="projectModalBackdrop">
+        <div class="modal-dialog" id="projectModalDialog">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamically injected via page.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quick Connect Dock (Fixed Direct Call & WhatsApp) -->
+    <aside class="floating-connect-dock" aria-label="Direct contact options">
+        <a href="tel:+918763438220" class="dock-btn dock-call" title="Direct Phone Call: +91-8763438220">
+            <i class="fa-solid fa-phone"></i>
+            <span class="dock-label">Call 8763438220</span>
+        </a>
+        <a href="https://wa.me/918763438220?text=Hi%20Saroj,%20I%20viewed%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" class="dock-btn dock-wa" title="WhatsApp: +91-8763438220">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="dock-label">WhatsApp</span>
+        </a>
+        <a href="mailto:beherasarojkumar786@gmail.com" class="dock-btn dock-email" title="Email: beherasarojkumar786@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="dock-label">Email Me</span>
+        </a>
+    </aside>
+
+    <!-- Floating Toast Notification System -->
+    <div id="toastNotification" class="toast-notification">
+        <i class="fa-solid fa-circle-check toast-icon"></i>
+        <span id="toastMessage" class="toast-message">Action successful!</span>
+    </div>
+
+    <!-- Back to Top Button with Progress Ring -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <a href="#home" class="logo">
+                    <span class="logo-symbol">&lt;</span>
+                    <span class="logo-text">Saroj<span class="logo-accent">.dev</span></span>
+                    <span class="logo-symbol">/&gt;</span>
+                </a>
+                <p class="footer-tagline">
+                    Angular Developer &bull; Frontend Engineer &bull; 3 Years Experience
+                </p>
+            </div>
+
+            <div class="footer-center">
+                <ul class="footer-nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <p class="copyright">
+                    &copy; <span id="currentYear">2026</span> Saroj Kumar. Built with passion, precision &amp; Angular excellence.
+                </p>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/saojakumar" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://in.linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="mailto:beherasarojkumar786@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://wa.me/918763438220" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="page.js"></script>
+</body>
 </html>
