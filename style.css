@@ -1710,9 +1710,8 @@ ul {
 }
 
 .project-pill {
-    position: absolute;
-    top: 15px;
-    left: 15px;
+    align-self: flex-start;
+    margin-bottom: 1rem;
     padding: 0.3rem 0.75rem;
     border-radius: var(--radius-pill);
     font-size: 0.725rem;
@@ -2693,7 +2692,17 @@ a.c-val:hover {
 
 @media (max-width: 600px) {
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .project-info {
+        padding: 1.25rem;
+    }
+
+    .project-footer {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
     }
 
     .services-grid {
